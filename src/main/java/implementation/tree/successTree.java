@@ -1,6 +1,6 @@
 package implementation.tree;
 
-public class failureTree {
+public class successTree {
     private static class Node {
         private int data;
         private Node left, right;
@@ -108,7 +108,7 @@ public class failureTree {
 
 
     public static void main(String[] args) {
-        failureTree tree = new failureTree();
+        successTree tree = new successTree();
         tree.addChild(6);
         tree.addChild(4);
         tree.addChild(2);
