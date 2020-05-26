@@ -2,6 +2,7 @@ package implementation.tree;
 
 import java.lang.Comparable;
 
+//  실패코드
 public class LinkedTree {
     private static class Node {
         private int data;
