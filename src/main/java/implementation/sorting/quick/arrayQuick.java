@@ -12,18 +12,18 @@ public class arrayQuick {
 
     public static int divide(Integer[] arr, int left, int right) {
         int i, j, x;
-        i = left - 1;
-        j = left;
-        x = arr[right];
-        while (j <= right - 1) {
-            if (arr[j] <= x) {
-                ++i;
+        i = left - 1; // -1
+        j = left; // 0
+        x = arr[right]; // pivot
+        while (j <= right - 1) { // pivot - 1까지 순회
+            if (arr[j] <= x) { // pivot보다 작은 값이면
+                ++i; // i 증가 시키고 스왑
                 swap(arr, i, j);
             }
-            j++;
+            j++; // j 증가
         }
-        swap(arr, i + 1, right);
-        return i + 1;
+        swap(arr, i + 1, right); // pivot보다 작은 값만 앞에 남았으니 스왑
+        return i + 1; // 새 pivot 결정
     }
 
 
