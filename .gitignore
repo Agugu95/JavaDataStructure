@@ -3,3 +3,10 @@
 /build/
 /build/classes/java/main/
 /.idea/
+build.gradle
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
+src/main/resources/
+src/test/
