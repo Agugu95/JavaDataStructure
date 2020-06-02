@@ -39,7 +39,7 @@ public class mergeSort {
 
     public static void printArr(Integer[] arr) {
         for (Integer i : arr) {
-            System.out.println(arr[i - 1]);
+            System.out.println(i);
         }
     }
 
