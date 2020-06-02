@@ -1,4 +1,4 @@
-package implementation.sorting;
+package implementation.sorting.basic;
 
 import java.lang.String;
 

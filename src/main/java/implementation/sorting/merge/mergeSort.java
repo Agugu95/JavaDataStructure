@@ -1,4 +1,4 @@
-package implementation.sorting;
+package implementation.sorting.merge;
 
 public class mergeSort {
     public static void recursionMerge(Integer[] arr, int start, int end) {

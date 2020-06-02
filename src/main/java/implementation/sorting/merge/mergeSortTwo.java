@@ -1,4 +1,4 @@
-package implementation.sorting;
+package implementation.sorting.merge;
 
 public class mergeSortTwo {
     public static void mergeSort(Integer[] arr, int start, int end) {

@@ -1,4 +1,4 @@
-package implementation.sorting;
+package implementation.sorting.basic;
 
 public class selectionSort {
     public static void swap(Integer[] arr, int prev, int next) {

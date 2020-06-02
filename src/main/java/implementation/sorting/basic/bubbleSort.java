@@ -1,4 +1,4 @@
-package implementation.sorting;
+package implementation.sorting.basic;
 
 public class bubbleSort {
 
