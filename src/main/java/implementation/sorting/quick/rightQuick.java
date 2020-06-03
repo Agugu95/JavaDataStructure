@@ -1,6 +1,6 @@
 package implementation.sorting.quick;
 
-public class arrayQuick {
+public class rightQuick {
     public static void quickSort(Integer[] arr, int left, int right) {
         if (left < right) {
             int pivot = divide(arr, left, right); // pivot 결정과 분할
