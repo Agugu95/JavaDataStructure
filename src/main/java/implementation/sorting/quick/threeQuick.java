@@ -5,7 +5,7 @@ public class threeQuick {
         int mid = (left + right) / 2;
         int pivot, i, j;
         threeSort(arr, left, right, mid);
-        if (right - left > 3) {
+        if (right - left + 1 > 3) {
             pivot = arr[mid];
             swap(arr, mid, right - 1);
             i = left;
@@ -24,6 +24,10 @@ public class threeQuick {
         }
     }
 
+    public static void partition(Integer[] arr, int left, int right, int mid) {
+
+    }
+
 
     public static void threeSort(Integer[] arr, int left, int right, int mid) {
         if (arr[left] >= arr[mid]) swap(arr, left, mid);
@@ -39,12 +43,12 @@ public class threeQuick {
 
     public static void printArr(Integer[] arr) {
         for (Integer i : arr) {
-            System.out.println(i);
+            System.out.print(i + "\t");
         }
     }
 
     public static void main(String[] args) {
-        Integer[] arr = new Integer[]{11, 18, 1, 20, 5, 12, 5, 16, 21, 9, 13};
+        Integer[] arr = new Integer[]{8, 5, 20, 3, 15, 1, 4};
         quickSort(arr, 0, arr.length - 1);
         printArr(arr);
     }
