@@ -1,12 +1,14 @@
 package implementation.sorting.quick;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class leftQuick {
     public static void quickSort(Integer[] arr, int left, int right) {
         // 재귀를 멈출 조건
-        if (left <= right) {
+        if (left < right) {
             int pivot = partition(arr, left, right);
             quickSort(arr, left, pivot - 1);
             quickSort(arr, pivot + 1, right);
@@ -15,24 +17,23 @@ public class leftQuick {
     }
 
     public static int partition(Integer[] arr, int left, int right) {
-        int i, j, x;
-        i = left + 1;
-        j = right;
-        x = arr[left];
-
+        int i = left;
+        int j = right;
+        int newPivot;
         while (i < j) {
-            while (arr[i] <= x) {
+            while (arr[left] > arr[i]) { // pivot >= data
                 i++;
             }
-            while (arr[j] >= x) {
+            while (arr[left] <= arr[j] &&  i < j) { // pivot <= data, outOfIndex
                 j--;
             }
-            if (i < j) {
+            if (i < j) { // swap
                 swap(arr, i, j);
             }
         }
-        swap(arr, left, j);
-        return j;
+        swap(arr, left, j); // pivot swap
+        newPivot = j;
+        return newPivot;
     }
 
     public static void swap(Integer[] arr, int a, int b) {
@@ -49,13 +50,16 @@ public class leftQuick {
 
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
+//        System.out.print("input : ");
 //        String s = sc.nextLine();
-//        String[] arr = s.split(" ");
+//       // String s = sc.nextLine().replace(" ", "");
+//       // String[] arr = s.split("");
+//        String[] arr = Stream.of(s.split(",")).map(String::trim).toArray(String[]::new);
 //        Integer[] iarr = new Integer[arr.length];
 //        for (int i = 0; i <= arr.length - 1; i++) {
 //            iarr[i] = Integer.parseInt(arr[i]);
 //        }
-        Integer[] iarr = new Integer[]{8, 5, 20 ,3, 15, 1, 4};
+        Integer[] iarr = new Integer[]{3, 8, 0, 7, 6, 4, 1, 5, 2, 4, 5, 8, 11, 2, 35, 3, 0 , 325, 53, 2, 129};
         quickSort(iarr, 0, iarr.length - 1);
         printArr(iarr);
     }
