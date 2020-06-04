@@ -1,5 +1,7 @@
 package implementation.sorting.quick;
 
+import java.util.Random;
+
 public class threeQuick {
     public static void quickSort(Integer[] arr, int left, int right) {
         int mid = (left + right) / 2;
@@ -48,7 +50,13 @@ public class threeQuick {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = new Integer[]{8, 5, 20, 3, 15, 1, 4};
+        Random random = new Random(System.nanoTime());
+        Integer[] arr = new Integer[8];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(10);
+        }
+        printArr(arr);
+        System.out.println();
         quickSort(arr, 0, arr.length - 1);
         printArr(arr);
     }

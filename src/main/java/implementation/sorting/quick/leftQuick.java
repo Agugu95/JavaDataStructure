@@ -2,6 +2,7 @@ package implementation.sorting.quick;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -20,11 +21,12 @@ public class leftQuick {
         int i = left;
         int j = right;
         int newPivot;
+        System.out.println("pivot = " + arr[left]);
         while (i < j) {
             while (arr[left] > arr[i]) { // pivot >= data
                 i++;
             }
-            while (arr[left] <= arr[j] &&  i < j) { // pivot <= data, outOfIndex
+            while (arr[left] <= arr[j] && i < j) { // pivot <= data, outOfIndex
                 j--;
             }
             if (i < j) { // swap
@@ -32,6 +34,7 @@ public class leftQuick {
             }
         }
         swap(arr, left, j); // pivot swap
+        System.out.println("arr = " + Arrays.deepToString(arr) + ", left = " + left + ", right = " + right);
         newPivot = j;
         return newPivot;
     }
@@ -59,8 +62,19 @@ public class leftQuick {
 //        for (int i = 0; i <= arr.length - 1; i++) {
 //            iarr[i] = Integer.parseInt(arr[i]);
 //        }
-        Integer[] iarr = new Integer[]{3, 8, 0, 7, 6, 4, 1, 5, 2, 4, 5, 8, 11, 2, 35, 3, 0 , 325, 53, 2, 129};
-        quickSort(iarr, 0, iarr.length - 1);
+        Random random = new Random(System.nanoTime());
+        Integer[] iarr = new Integer[8];
+        for (int i = 0; i < iarr.length; i++) {
+            iarr[i] = random.nextInt(8);
+            for (int j = 0; j < i; j++) {
+                if (iarr[i].equals(iarr[j])) {
+                    i--;
+                }
+            }
+        }
         printArr(iarr);
+        System.out.println();
+        quickSort(iarr, 0, iarr.length - 1);
     }
 }
+
