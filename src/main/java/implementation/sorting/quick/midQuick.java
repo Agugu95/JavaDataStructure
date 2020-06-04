@@ -16,8 +16,8 @@ public class midQuick {
     public static int partition(Integer[] arr, int left, int right) {
         // pivot은 정렬에서 제외 되어야함
         int pivot = (left + right) / 2;
-
-        System.out.println("pivot = " + arr[pivot] + ", left = " + left + ", right = " + right);
+        swap(arr, left, pivot);
+       // System.out.println("pivot = " + arr[pivot] + ", left = " + left + ", right = " + right);
 
         while (left < right) {
             while (arr[pivot] > arr[left]) { // pivot보다 큰 값 탐색
@@ -31,8 +31,8 @@ public class midQuick {
             }
         }
         swap(arr, pivot, right);
-        System.out.println("arr = " + Arrays.deepToString(arr) + ", Left = " + left + ", Right = " + right);
-        return left;
+       // System.out.println("arr = " + Arrays.deepToString(arr) + ", Left = " + left + ", Right = " + right);
+        return pivot;
     }
 
     public static void swap(Integer[] arr, int a, int b) {
@@ -48,17 +48,19 @@ public class midQuick {
     }
     public static void main(String[] args) {
         Random random = new Random(System.nanoTime());
-        Integer[] arr = new Integer[10];
+        Integer[] arr = new Integer[10000];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(10);
+            arr[i] = random.nextInt(10000);
             for (int j = 0; j < i; j++) {
                 if (arr[i].equals(arr[j])) {
                     i--;
                 }
             }
         }
-        printArr(arr);
-        System.out.println();
+        long start, end;
+        start = System.currentTimeMillis();
         quickSort(arr, 0, arr.length - 1);
+        end = System.currentTimeMillis();
+        System.out.println((end - start) / 1000.0);
     }
 }

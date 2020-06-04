@@ -1,5 +1,6 @@
 package implementation.sorting.quick;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class threeQuick {
@@ -12,6 +13,7 @@ public class threeQuick {
             swap(arr, mid, right - 1);
             i = left;
             j = right - 1;
+            //System.out.println("pivot = " + pivot);
             while (true) {
                 while (arr[++i] < pivot);
                 while (arr[--j] > pivot);
@@ -21,6 +23,7 @@ public class threeQuick {
                 swap(arr, i, j);
             }
             swap(arr, i, right - 1);
+            //System.out.println("arr = " + Arrays.deepToString(arr) + ", left = " + left + ", right = " + right);
             quickSort(arr, left, i - 1);
             quickSort(arr, i + 1, right);
         }
@@ -51,13 +54,22 @@ public class threeQuick {
 
     public static void main(String[] args) {
         Random random = new Random(System.nanoTime());
-        Integer[] arr = new Integer[8];
+        Integer[] arr = new Integer[10000];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(10);
+            arr[i] = random.nextInt(10000);
+            for (int j = 0; j < i; j++) {
+                if (arr[i].equals(arr[j])) {
+                    i--;
+                }
+            }
         }
-        printArr(arr);
-        System.out.println();
+        long start, end;
+        start = System.currentTimeMillis();
         quickSort(arr, 0, arr.length - 1);
-        printArr(arr);
+        end = System.currentTimeMillis();
+        System.out.println((end - start) / 1000.0);
+        for (Integer i : arr) {
+            System.out.print(i + "\t");
+        }
     }
 }

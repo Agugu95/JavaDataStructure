@@ -21,7 +21,7 @@ public class leftQuick {
         int i = left;
         int j = right;
         int newPivot;
-        System.out.println("pivot = " + arr[left]);
+        //System.out.println("pivot = " + arr[left]);
         while (i < j) {
             while (arr[left] > arr[i]) { // pivot >= data
                 i++;
@@ -34,9 +34,8 @@ public class leftQuick {
             }
         }
         swap(arr, left, j); // pivot swap
-        System.out.println("arr = " + Arrays.deepToString(arr) + ", left = " + left + ", right = " + right);
-        newPivot = j;
-        return newPivot;
+        //System.out.println("arr = " + Arrays.deepToString(arr) + ", left = " + left + ", right = " + right);
+        return j;
     }
 
     public static void swap(Integer[] arr, int a, int b) {
@@ -63,18 +62,20 @@ public class leftQuick {
 //            iarr[i] = Integer.parseInt(arr[i]);
 //        }
         Random random = new Random(System.nanoTime());
-        Integer[] iarr = new Integer[8];
+        Integer[] iarr = new Integer[10000];
         for (int i = 0; i < iarr.length; i++) {
-            iarr[i] = random.nextInt(8);
+            iarr[i] = random.nextInt(10000);
             for (int j = 0; j < i; j++) {
                 if (iarr[i].equals(iarr[j])) {
                     i--;
                 }
             }
         }
-        printArr(iarr);
-        System.out.println();
+        long start, end;
+        start = System.currentTimeMillis();
         quickSort(iarr, 0, iarr.length - 1);
+        end = System.currentTimeMillis();
+        System.out.println((end - start) / 1000.0);
     }
 }
 
