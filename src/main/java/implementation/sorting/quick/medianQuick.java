@@ -3,7 +3,7 @@ package implementation.sorting.quick;
 import java.util.Arrays;
 import java.util.Random;
 
-public class threeQuick {
+public class medianQuick {
     public static void quickSort(Integer[] arr, int left, int right) {
         int mid = (left + right) / 2;
         int pivot, i, j;
@@ -27,10 +27,6 @@ public class threeQuick {
             quickSort(arr, left, i - 1);
             quickSort(arr, i + 1, right);
         }
-    }
-
-    public static void partition(Integer[] arr, int left, int right, int mid) {
-
     }
 
 
