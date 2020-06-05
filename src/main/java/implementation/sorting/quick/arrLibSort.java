@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class arrLibSort {
-    public static void main(String[] args) { // 0.021초 Dual-Pivot Quick
+    public static void main(String[] args) { // 0.021초 Tim sort
         Random random = new Random(System.nanoTime());
         Integer[] arr = new Integer[50000];
         for (int i = 0; i < arr.length; i++) {
