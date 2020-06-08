@@ -1,11 +1,11 @@
 package implementation.heap;
 
-public class maxHeap {
+public class noLib_maxHeap {
     private int size;
     private int capacity;
     private int[] maxHeap;
 
-    public maxHeap(int capacity) { // 최대 힙 크기
+    public noLib_maxHeap(int capacity) { // 최대 힙 크기
         this.capacity = capacity;
         this.size = 0; // 힙 크기
         maxHeap = new int[this.capacity - 1];
@@ -79,18 +79,17 @@ public class maxHeap {
     }
 
     public static void main(String[] args) {
-        maxHeap maxHeap = new maxHeap(15);
-        maxHeap.insert(5);
-        maxHeap.insert(3);
-        maxHeap.insert(17);
-        maxHeap.insert(10);
-        maxHeap.insert(84);
-        maxHeap.insert(19);
-        maxHeap.insert(6);
-        maxHeap.insert(22);
-        maxHeap.insert(9);
-        maxHeap.printHeap();
-        System.out.println("max= " + maxHeap.deletedMax());
-        maxHeap.printHeap();
+        noLib_maxHeap noLib_maxHeap = new noLib_maxHeap(15);
+        noLib_maxHeap.insert(5);
+        noLib_maxHeap.insert(347);
+        noLib_maxHeap.insert(212);
+        noLib_maxHeap.insert(10);
+        noLib_maxHeap.insert(23);
+        noLib_maxHeap.insert(65);
+        noLib_maxHeap.insert(400);
+        noLib_maxHeap.insert(30);
+        noLib_maxHeap.printHeap(); // 400 - 30 - 347 - 23 - 10 - 65 - 212 - 5
+        System.out.println("delete max= " + noLib_maxHeap.deletedMax());
+        noLib_maxHeap.printHeap();
     }
 }
