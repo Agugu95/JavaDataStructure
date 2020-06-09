@@ -65,15 +65,11 @@ public class noLib_heapSort {
 
     public static void main(String[] args) {
         Random rand = new Random();
-        noLib_heapSort h = new noLib_heapSort(10);
-        for (int i = 1; i < h.maxHeap.length; i++) {
-            int tmp = rand.nextInt(50);
-            if (h.maxHeap[i] == tmp) {
-                i--;
-            } else {
-                h.addToSort(tmp);
-            }
-        }
+        noLib_heapSort h = new noLib_heapSort(5);
+        h.addToSort(20);
+        h.addToSort(1);
+        h.addToSort(7);
+        h.addToSort(12);
         h.printHeap();
         System.out.println();
         System.out.println(h.pollToHeap());
