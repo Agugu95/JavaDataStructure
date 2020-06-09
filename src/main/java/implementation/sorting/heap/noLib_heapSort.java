@@ -12,7 +12,7 @@ public class noLib_heapSort {
     }
 
     public void printHeap() {
-        for (int i = 1; i <= maxHeap.length - 1; i++) {
+        for (int i = 1; i <= size; i++) {
             System.out.print(maxHeap[i] + " ");
         }
     }
@@ -27,7 +27,7 @@ public class noLib_heapSort {
         maxHeap[b] = temp;
     }
 
-    public void addToSort(int data) {
+    public void addToSort(int data) { // 삽입과 동시에 최대 힙 정렬
         maxHeap[++size] = data;
         int current = size;
         while (maxHeap[current] > maxHeap[parent(current)]) {
@@ -36,28 +36,47 @@ public class noLib_heapSort {
         }
     }
 
-    public int pollToHeap() {
+    public int pollToHeap() { // 최대 힙 제거 후 힙 재조정
         int max = maxHeap[1];
         maxHeap[1] = maxHeap[size--];
-        int current = size;
-        while (maxHeap[current] > maxHeap[parent(current)]) {
-            swap(current, parent(current));
-            current = parent(current);
-        }
+        heapify(1);
         return max;
     }
+
+    public void heapify(int i) {
+        int leftChild = i * 2;
+        int rightChild = (i * 2) + 1;
+        int lastNode = 0;
+        if (rightChild > size) { // 핵심
+            return;
+        }
+        if (maxHeap[leftChild] > maxHeap[rightChild]) {
+            lastNode = leftChild;
+        } else {
+            lastNode = rightChild;
+        }
+        if (maxHeap[i] >= maxHeap[lastNode]) {
+            return;
+        }
+        swap(i, lastNode);
+        heapify(lastNode);
+    }
+
 
     public static void main(String[] args) {
         Random rand = new Random();
         noLib_heapSort h = new noLib_heapSort(10);
         for (int i = 1; i < h.maxHeap.length; i++) {
-            int tmp = rand.nextInt(20);
-            if (tmp == h.maxHeap[i]){
-                --i;
+            int tmp = rand.nextInt(50);
+            if (h.maxHeap[i] == tmp) {
+                i--;
             } else {
                 h.addToSort(tmp);
             }
         }
+        h.printHeap();
+        System.out.println();
+        System.out.println(h.pollToHeap());
         h.printHeap();
         System.out.println();
         System.out.println(h.pollToHeap());
