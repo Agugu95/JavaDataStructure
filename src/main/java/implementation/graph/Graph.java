@@ -23,8 +23,20 @@ public class Graph {
         graph.get(preVertx).add(nextVertx);
         graph.get(nextVertx).add(preVertx);
     }
-    public void addNode(int vertex, int data) {
+    public void singleEdge(int vertex, int data) {
         graph.get(vertex).add(data);
+    }
+
+    public static void main(String[] args) {
+        Graph graph = new Graph(5);
+        graph.singleEdge(0, 1);
+        graph.singleEdge(0,4);
+        graph.makeEdge(1, 2);
+        graph.makeEdge(2, 3);
+        graph.makeEdge(1, 4);
+        System.out.println(graph.getVertex(1));
+        System.out.println(graph.getVertex(0));
+        System.out.println(graph.getVertex(4));
     }
 }
 
