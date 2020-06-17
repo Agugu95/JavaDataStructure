@@ -51,10 +51,10 @@ public class unionFind {
         size[x] += size[y];
     }
 
-    public void connected(int x, int y) {
+    public boolean connected(int x, int y) {
         x = find(x);
         y = find(y);
-        System.out.println(x == y);
+        return x == y;
     }
 
     public void printArr() {
