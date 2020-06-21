@@ -1,4 +1,4 @@
-package implementation.graph;
+package implementation.graph.mst;
 
 public class unionFind {
     private final int[] tree, rank, size;

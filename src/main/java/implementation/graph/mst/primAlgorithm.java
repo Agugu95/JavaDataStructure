@@ -1,4 +1,4 @@
-package implementation.graph;
+package implementation.graph.mst;
 
 import java.util.*;
 
