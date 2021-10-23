@@ -1,8 +1,8 @@
 package implementation.list;
 
 public class doublyList {
-    public class Node {
-        private int data;
+    public static class Node {
+        private final int data;
         private Node next;
         private Node prev;
 

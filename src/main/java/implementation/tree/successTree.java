@@ -2,7 +2,7 @@ package implementation.tree;
 
 public class successTree {
     private static class Node {
-        private int data;
+        private final int data;
         private Node left, right;
 
         public Node(int input) {
@@ -22,7 +22,7 @@ public class successTree {
 
 
     private Node root;
-    private int count = 0;
+    private final int count = 0;
 
     public Node getRoot() {
         return this.root;
@@ -81,7 +81,6 @@ public class successTree {
                 }
             }
         }
-
     }
 
     public void deleteNode(int input) {

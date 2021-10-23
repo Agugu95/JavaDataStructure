@@ -5,8 +5,9 @@ import java.util.Queue;
 
 public class completeBST {
     private static class Node {
-        private int data;
-        private Node left, right;
+        private final int data;
+        private final Node left;
+        private final Node right;
 
         public Node(int input) {
             this.data = input;
@@ -25,7 +26,7 @@ public class completeBST {
 
 
     private Node root;
-    private int count = 0;
+    private final int count = 0;
 
     public Node getRoot() {
         return this.root;
