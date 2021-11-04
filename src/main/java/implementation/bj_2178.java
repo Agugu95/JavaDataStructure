@@ -49,7 +49,7 @@ public class bj_2178 {
             String str = st.nextToken();
             for (int j = 0; j < m; j++) {
                 arr[i][j] = Integer.parseInt(String.valueOf(str.charAt(j)));
-                // ascii code charAt() - '0'
+                // ascii code charAt() - '0' 
             }
         }
 
